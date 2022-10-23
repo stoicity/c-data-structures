@@ -5,11 +5,14 @@
 
 #define T stack_t
 
+/* Define a struct for stack */
+
+/* Stack implemented as a linked list */
 struct T {
     struct node {
         void *data;
         struct node *next;
-    } *top;
+    } *top; 
 
     int size;
 };

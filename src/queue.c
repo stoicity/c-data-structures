@@ -5,13 +5,16 @@
 
 #define T queue_t
 
+/* Define a struct for queue */
+
+/* Queue implemented as a linked list */
 struct T {
     struct node {
         void *data;
         struct node *next;
     } *head, *tail;
 
-    int size;
+    int size; 
 };
 
 T queue_create(){
