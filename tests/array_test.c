@@ -1,11 +1,10 @@
-#include <stdio.h>
 #include <assert.h>
 
 #include "array.h"
 
 int main(){
     array_t arr, copied;
-    int result;
+    int result, *ptr;
     int sample[] = {1, 2, 3, 4};
 
     // Array create test
@@ -14,14 +13,14 @@ int main(){
 
     // Array append and get test : array {1}
     array_append(arr, sample);
-    int *ptr = array_get(arr, 0);
-    result = sample[0] == *ptr;
+    ptr = array_get(arr, 0);
+    result = *ptr == 1;
     assert(result);
 
     // Array put test : array {3}
     array_put(arr, 0, sample + 2);
     ptr = array_get(arr, 0);
-    result = sample[2] == *ptr;
+    result = *ptr == 3;
     assert(result);
     
     // array {3, 2, 3}
@@ -38,7 +37,7 @@ int main(){
     assert(result);
     assert(array_size(arr) == 2);
 
-    // Array copied test
+    // Array copied test: copied {3, 3}
     copied = array_copy(arr);
     assert(copied);
     ptr = array_get(copied, 0);

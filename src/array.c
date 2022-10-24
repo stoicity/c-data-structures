@@ -130,7 +130,7 @@ void array_remove(T array, int index){
     assert(index >= 0 && index < array->length);
 
     memcpy(array->memory + index * array->data_size,
-        array->memory + (index + 1) * array->data_size, 
-        (array->length - (index + 1)) * array->data_size);
+        (array->memory) + (index + 1) * array->data_size, 
+        ((array->length) - (index + 1)) * array->data_size);
     array->length--;
 }
